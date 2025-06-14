@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBoard.Api", "MiniBoard.Api\MiniBoard.Api.csproj", "{F2CA6ED9-D15E-48BD-B295-3B8A4BF11335}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBoard.Core", "MiniBoard.Core\MiniBoard.Core.csproj", "{FBA43C75-FA07-4CE0-9148-73CBC2AFC844}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniBoard.Infra", "MiniBoard.Infra\MiniBoard.Infra.csproj", "{C22EC264-FE28-4361-8C00-875182EE6170}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "migrations", "migrations", "{44529F70-F31D-405D-AF91-B69DC37E4933}"
+	ProjectSection(SolutionItems) = preProject
+		migrations\001_create_board_tasks_table.sql = migrations\001_create_board_tasks_table.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{2FC8EF17-161A-4868-A477-3A2F68EB3727}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2CA6ED9-D15E-48BD-B295-3B8A4BF11335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2CA6ED9-D15E-48BD-B295-3B8A4BF11335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2CA6ED9-D15E-48BD-B295-3B8A4BF11335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2CA6ED9-D15E-48BD-B295-3B8A4BF11335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA43C75-FA07-4CE0-9148-73CBC2AFC844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA43C75-FA07-4CE0-9148-73CBC2AFC844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA43C75-FA07-4CE0-9148-73CBC2AFC844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA43C75-FA07-4CE0-9148-73CBC2AFC844}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22EC264-FE28-4361-8C00-875182EE6170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22EC264-FE28-4361-8C00-875182EE6170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22EC264-FE28-4361-8C00-875182EE6170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22EC264-FE28-4361-8C00-875182EE6170}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
