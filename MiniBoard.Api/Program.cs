@@ -11,10 +11,36 @@ using MiniBoard.Core.Services;
 using MiniBoard.Infra.Bot;
 using MiniBoard.Infra.Data;
 using MiniBoard.Infra.Repositories;
+using Serilog;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
+using VaultSharp;
+using VaultSharp.Extensions.Configuration;
+using VaultSharp.V1.AuthMethods.UserPass;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSerilog((provider, configuration) =>
+{
+    configuration.ReadFrom.Configuration(builder.Configuration)
+        .ReadFrom.Services(provider)
+        .Enrich.FromLogContext()
+        .WriteTo.Console();
+});
+
+builder.Configuration.AddEnvironmentVariables();
+if (builder.Environment.IsDevelopment() is false)
+{
+    builder.Configuration.AddVaultConfiguration(
+        () => new VaultOptions(
+            "https://vault.ancored.ru", 
+            new UserPassAuthMethodInfo("mini-board", "mini-board"),
+            reloadOnChange: true, 
+            reloadCheckIntervalSeconds: 10), 
+        Environment.GetEnvironmentVariable("VAULT_PATH")!, 
+        "secrets");
+    builder.Services.AddHostedService<VaultChangeWatcher>();
+}
 
 // Add services to the container.
 builder.Services.AddDbContext<MiniBoardDbContext>(options =>

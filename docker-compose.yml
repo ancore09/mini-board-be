@@ -14,5 +14,20 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  miniboard-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: miniboard_api
+    ports:
+      - "5435:8080"
+    depends_on:
+      - postgres
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - VAULT_PATH=prod/apps/mini-board
+    restart: unless-stopped
+
 volumes:
   postgres_data:
